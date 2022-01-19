@@ -15,12 +15,20 @@ public class MarkdownParse {
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            currentIndex = closeParen + 1;
-            if (markdown.indexOf("[", currentIndex) == -1) {
-                currentIndex = markdown.length();
+
+            // test 1
+            // currentIndex = closeParen + 1;
+            // if (markdown.indexOf("[", currentIndex) == -1) {
+            //     currentIndex = markdown.length();
+            // }
+            // toReturn.add(markdown.substring(openParen + 1, closeParen));
+
+            // test 2
+            if (closeParen == -1) {
+                break;
             }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
-            
+            currentIndex = closeParen + 1;
         }
         return toReturn;
     }
