@@ -24,11 +24,17 @@ public class MarkdownParse {
             // toReturn.add(markdown.substring(openParen + 1, closeParen));
 
             // test 2
-            if (closeParen == -1) {
-                break;
-            }
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            // if (closeParen == -1) {
+            //     break;
+            // }
+            // toReturn.add(markdown.substring(openParen + 1, closeParen));
+            // currentIndex = closeParen + 1;
+
+            // test 3
             currentIndex = closeParen + 1;
+            if (markdown.substring(openParen + 1, closeParen).contains("http")) {
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
         }
         return toReturn;
     }
