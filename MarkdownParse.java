@@ -19,7 +19,7 @@ public class MarkdownParse {
             if (closeParen == -1) {
                 break;
             } 
-            if((markdown.substring(openParen + 1, closeParen).contains("https"))) {
+            if((markdown.substring(openParen + 1, closeParen).contains("https")) || (markdown.substring(openParen + 1, closeParen).contains(".html"))) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
             
