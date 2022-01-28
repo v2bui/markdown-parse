@@ -16,33 +16,7 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
             currentIndex = closeParen + 1;
-            if (closeParen == -1) {
-                break;
-            } 
-            if((markdown.substring(openParen + 1, closeParen).contains("https")) || (markdown.substring(openParen + 1, closeParen).contains(".html"))) {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
-            }
-            
-
-            // test 1
-            // currentIndex = closeParen + 1;
-            // if (markdown.indexOf("[", currentIndex) == -1) {
-            //     currentIndex = markdown.length();
-            // }
-            // toReturn.add(markdown.substring(openParen + 1, closeParen));
-
-            // test 2
-            // if (closeParen == -1) {
-            //     break;
-            // }
-            // toReturn.add(markdown.substring(openParen + 1, closeParen));
-            // currentIndex = closeParen + 1;
-
-            // test 3
-            // currentIndex = closeParen + 1;
-            // if (markdown.substring(openParen + 1, closeParen).contains("http")) {
-            //     toReturn.add(markdown.substring(openParen + 1, closeParen));
-            // }
+            toReturn.add(markdown.substring(openParen + 1, closeParen));
         }
         return toReturn;
     }
